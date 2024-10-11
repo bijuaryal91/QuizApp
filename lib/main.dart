@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/quiz_app.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:quiz_app/screens/welcome/welcome_screen.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const MyApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Quiz",
+    return GetMaterialApp(
+      title: 'Quiz',
       debugShowCheckedModeBanner: false,
-      home: const QuizApp(),
+      theme: ThemeData.dark(),
+      home: WelcomeScreen(),
     );
   }
 }
