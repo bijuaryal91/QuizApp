@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:quiz_app/controllers/question_controller.dart';
+
+import 'components/body.dart';
 
 class QuizScreen extends StatelessWidget {
   const QuizScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    QuestionController controller = Get.put(QuestionController());
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -12,10 +17,11 @@ class QuizScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
-          ElevatedButton(onPressed: () {}, child: const Text("Skip")),
+          ElevatedButton(
+              onPressed: controller.nextQuestion, child: const Text("Skip")),
         ],
       ),
-      body: const Text("Body"),
+      body: const Body(),
     );
   }
 }
